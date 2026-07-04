@@ -6,8 +6,9 @@
 
 ### AI-Powered Nutrition & Meditation Assistant
 
-A full-featured wellness web app that helps users track nutrition, hydration,
-fitness goals, and mindfulness — all in one clean, responsive dashboard.
+
+
+ A full-featured wellness web app that helps users track nutrition, hydration, fitness goals, and mindfulness — all in one clean, responsive dashboard.
 
 [![React](https://img.shields.io/badge/React-18.2-61DAFB?logo=react&logoColor=white)](https://react.dev)
 [![React Router](https://img.shields.io/badge/React_Router-6.22-CA4245?logo=reactrouter&logoColor=white)](https://reactrouter.com)
@@ -29,8 +30,7 @@ hydration reminders, fitness goal management, and guided mindfulness tools
 into a single, cohesive experience — with a polished UI, dark mode, sound
 feedback, and browser notifications.
 
-Built as a personal/portfolio project to demonstrate practical skills in
-**React, component architecture, state management, data persistence,
+Built as a full-stack AI-powered web application, component architecture, state management, data persistence,
 responsive design, and UI/UX polish.**
 
 <br/>
@@ -60,12 +60,28 @@ responsive design, and UI/UX polish.**
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React 18, React Router 6
-- **Charts:** Recharts
-- **Styling:** Custom CSS with design tokens (CSS variables), responsive grid layout
-- **State & Persistence:** React Hooks + Browser LocalStorage
-- **APIs:** Web Audio API (sound), Notifications API (reminders)
-- **Tooling:** Create React App
+### Frontend
+- React.js
+- React Router
+- Recharts
+- CSS3
+
+### Backend
+- Node.js
+- Express.js
+
+### Database
+- MongoDB Atlas
+- Mongoose
+
+### AI & APIs
+- Gemini AI (or the AI service you actually use)
+- Web Notifications API
+- Web Audio API
+
+### Tools
+- Git & GitHub
+- VS Code
 
 > **Note:** Food Scanner currently uses a mock nutrition-analysis function
 > (`src/pages/FoodScanner.jsx`) to simulate an AI image-recognition API.
@@ -97,7 +113,7 @@ responsive design, and UI/UX polish.**
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/nutrizen-ai.git
+git clone https://github.com/nanmozhi-25/nutrizen-ai.git
 cd nutrizen-ai
 
 # Install dependencies
@@ -162,10 +178,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 👤 Author
 
-**Your Name**
-- GitHub: [@your-username](https://github.com/your-username)
-- LinkedIn: [your-name](https://linkedin.com/in/your-name)
-- Email: your.email@example.com
+**Nanmozhi T**
+- GitHub: [@your-username](https://github.com/nanmozhi-25)
 
 <br/>
 
