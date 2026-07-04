@@ -30,7 +30,7 @@ hydration reminders, fitness goal management, and guided mindfulness tools
 into a single, cohesive experience — with a polished UI, dark mode, sound
 feedback, and browser notifications.
 
-Built as a full-stack AI-powered web application to demonstrate practical skills in React, Node.js, Express.js, MongoDB Atlas, responsive UI design, state management, REST APIs, and modern web development.**
+Built as a full-stack AI-powered web application to demonstrate practical skills in React, Node.js, Express.js, MongoDB Atlas, responsive UI design, state management, REST APIs, and modern web development.
 
 <br/>
 
@@ -74,7 +74,7 @@ Built as a full-stack AI-powered web application to demonstrate practical skills
 - Mongoose
 
 ### AI & APIs
-- Gemini AI (or the AI service you actually use)
+- Gemini AI API
 - Web Notifications API
 - Web Audio API
 
@@ -82,8 +82,7 @@ Built as a full-stack AI-powered web application to demonstrate practical skills
 - Git & GitHub
 - VS Code
 
-> **Note:** Food Scanner uses AI-powered image analysis to estimate nutritional information and automatically logs meals into the user's food diary.
-> (`src/pages/FoodScanner.jsx`) to simulate an AI image-recognition API.
+> **Note:** > **Note:** The Food Scanner currently uses a mock AI nutrition analysis function to simulate image recognition. The architecture is designed so it can easily be integrated with a real AI vision API such as Gemini Vision or Google Vision in the future.
 > It's structured to be swapped for a real service (e.g. Clarifai, Google
 > Vision, or a custom-trained model) without changing the rest of the flow.
 
@@ -91,14 +90,14 @@ Built as a full-stack AI-powered web application to demonstrate practical skills
 
 ## ⭐ Highlights
 
-- AI-Powered Nutrition Assistant
-- Personalized Meal Planning
-- Hydration Tracking
-- Meditation & Mindfulness
-- BMI Calculator
-- Food Diary
-- MongoDB Atlas Integration
-- Responsive Dashboard
+- 🤖 AI-Powered Nutrition Assistant
+- 🍽️ Personalized Meal Planning
+- 💧 Hydration Tracking
+- 🧘 Meditation & Mindfulness
+- 📊 BMI Calculator
+- 📔 Food Diary
+- ☁️ MongoDB Atlas Integration
+- 📱 Responsive Dashboard
 
 <br/>
 
@@ -183,13 +182,15 @@ submit a pull request.
 
 ## 🏗️ Architecture
 
+```text
 React.js Frontend
         │
-REST API
+   REST API
         │
 Node.js + Express.js
         │
-MongoDB Atlas
+ MongoDB Atlas
+```
 
 <br/>
 
@@ -202,7 +203,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## 👤 Author
 
 **Nanmozhi T**
-- GitHub: [nanmozhi-25](https://github.com/nanmozhi-25)
+- GitHub: https://github.com/nanmozhi-25
 
 <br/>
 
