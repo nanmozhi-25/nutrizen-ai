@@ -179,7 +179,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## 👤 Author
 
 **Nanmozhi T**
-- GitHub: [@your-username](https://github.com/nanmozhi-25)
+- GitHub: [nanmozhi-25](https://github.com/nanmozhi-25)
 
 <br/>
 
