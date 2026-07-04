@@ -30,8 +30,7 @@ hydration reminders, fitness goal management, and guided mindfulness tools
 into a single, cohesive experience — with a polished UI, dark mode, sound
 feedback, and browser notifications.
 
-Built as a full-stack AI-powered web application, component architecture, state management, data persistence,
-responsive design, and UI/UX polish.**
+Built as a full-stack AI-powered web application to demonstrate practical skills in React, Node.js, Express.js, MongoDB Atlas, responsive UI design, state management, REST APIs, and modern web development.**
 
 <br/>
 
@@ -83,10 +82,23 @@ responsive design, and UI/UX polish.**
 - Git & GitHub
 - VS Code
 
-> **Note:** Food Scanner currently uses a mock nutrition-analysis function
+> **Note:** Food Scanner uses AI-powered image analysis to estimate nutritional information and automatically logs meals into the user's food diary.
 > (`src/pages/FoodScanner.jsx`) to simulate an AI image-recognition API.
 > It's structured to be swapped for a real service (e.g. Clarifai, Google
 > Vision, or a custom-trained model) without changing the rest of the flow.
+
+<br/>
+
+## ⭐ Highlights
+
+- AI-Powered Nutrition Assistant
+- Personalized Meal Planning
+- Hydration Tracking
+- Meditation & Mindfulness
+- BMI Calculator
+- Food Diary
+- MongoDB Atlas Integration
+- Responsive Dashboard
 
 <br/>
 
@@ -150,7 +162,6 @@ nutrizen-ai/
 ## 🗺️ Roadmap
 
 - [ ] Connect Food Scanner to a real image-recognition API
-- [ ] Add a backend (Node/Express + MongoDB) for real user accounts
 - [ ] Deploy to Vercel with a live demo link
 - [ ] Add unit tests (Jest + React Testing Library)
 - [ ] PWA support for installable mobile experience
@@ -167,6 +178,18 @@ submit a pull request.
 3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+<br/>
+
+## 🏗️ Architecture
+
+React.js Frontend
+        │
+REST API
+        │
+Node.js + Express.js
+        │
+MongoDB Atlas
 
 <br/>
 
