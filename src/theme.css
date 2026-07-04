@@ -1,0 +1,488 @@
+/* ================= NutriZen AI — Global Theme ================= */
+
+:root {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-secondary: #8b5cf6;
+  --color-secondary-light: #a78bfa;
+  --color-success: #10b981;
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-danger: #dc2626;
+  --color-warning: #d97706;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.1);
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --font-main: "Inter", "Segoe UI", sans-serif;
+  --body-gradient: linear-gradient(160deg, #f8fafc 0%, #f1f5f9 100%);
+  --sidebar-gradient: linear-gradient(90deg, #0ea5e9, #2563eb);
+
+  /* Feature accent colors — used for stat cards, feature icons, charts */
+  --accent-calories-bg: #fef3c7;
+  --accent-calories-icon: #f59e0b;
+  --accent-water-bg: #dbeafe;
+  --accent-water-icon: #2563eb;
+  --accent-goals-bg: #d1fae5;
+  --accent-goals-icon: #10b981;
+  --accent-achievements-bg: #ede9fe;
+  --accent-achievements-icon: #8b5cf6;
+  --accent-food-bg: #ecfdf5;
+  --accent-food-icon: #059669;
+  --accent-bmi-icon: #8b5cf6;
+
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+[data-theme="dark"] {
+  --color-primary: #38bdf8;
+  --color-primary-dark: #0ea5e9;
+  --color-secondary: #a78bfa;
+  --color-secondary-light: #c4b5fd;
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-text: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-border: #2d3b50;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --body-gradient: linear-gradient(160deg, #0f172a 0%, #131e33 100%);
+
+  --accent-calories-bg: #3a2f1a;
+  --accent-calories-icon: #fbbf24;
+  --accent-water-bg: #1c2f4a;
+  --accent-water-icon: #60a5fa;
+  --accent-goals-bg: #123529;
+  --accent-goals-icon: #34d399;
+  --accent-achievements-bg: #2c2547;
+  --accent-achievements-icon: #a78bfa;
+  --accent-food-bg: #10291f;
+  --accent-food-icon: #34d399;
+  --accent-bmi-icon: #a78bfa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background: var(--body-gradient);
+  background-attachment: fixed;
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+h2 { font-size: 1.375rem; }
+h3 { font-size: 1.05rem; }
+
+p { line-height: 1.6; }
+
+/* Consistent focus states for accessibility + polish */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+.suggestion-chip:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+input, textarea, select {
+  font-family: var(--font-main);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 15%, transparent);
+}
+
+::selection {
+  background: var(--color-secondary-light);
+  color: #fff;
+}
+
+/* Subtle fade-in for page content */
+.main-content > * {
+  animation: fadeInUp 0.4s ease both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 32px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ---------- Reusable Card ---------- */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
+  padding: 22px;
+  margin-bottom: 20px;
+  border: 1px solid var(--color-border);
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06), 0 8px 20px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--color-primary) 25%, var(--color-border));
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  filter: brightness(0.92);
+}
+
+.btn-success {
+  background: var(--color-success);
+  color: #fff;
+}
+
+.btn-success:hover {
+  filter: brightness(0.92);
+}
+
+/* ---------- Progress bar ---------- */
+.progress-track {
+  width: 100%;
+  height: 12px;
+  background: var(--color-border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  transition: width 0.4s ease;
+}
+
+/* ---------- Grid for dashboard cards ---------- */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ---------- Page Header ---------- */
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 4px;
+}
+
+.page-header .icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.page-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.page-header p {
+  margin: 2px 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+}
+
+/* ---------- Stat cards (small metric tiles) ---------- */
+.stat-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.stat-card .stat-label {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.stat-card .stat-value {
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-primary-dark);
+  margin-top: 4px;
+}
+
+/* ---------- Empty states ---------- */
+.empty-state {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--color-text-muted);
+}
+
+.empty-state .empty-icon {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+  margin-bottom: 8px;
+}
+
+/* ---------- Buttons with icon + subtle interactions ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Suggestion box (smart tips / quick-add suggestions) ---------- */
+.suggestion-box {
+  margin-top: 16px;
+  background: color-mix(in srgb, var(--color-secondary) 6%, var(--color-bg));
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 20%, var(--color-border));
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.suggestion-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: 6px;
+}
+
+.suggestion-box ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.suggestion-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.suggestion-chip {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.suggestion-chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+}
+.feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  color: var(--color-primary-dark);
+  margin-bottom: 8px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .feature-icon {
+  transform: scale(1.08);
+}
+
+/* ---------- Toast notifications ---------- */
+.toast-stack {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: var(--shadow-md);
+  font-size: 0.85rem;
+  color: var(--color-text);
+  min-width: 240px;
+  animation: toastIn 0.25s ease both;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.toast-success { border-left: 4px solid var(--color-success); }
+.toast-success svg { color: var(--color-success); }
+.toast-error { border-left: 4px solid var(--color-danger); }
+.toast-error svg { color: var(--color-danger); }
+.toast-info { border-left: 4px solid var(--color-primary); }
+.toast-info svg { color: var(--color-primary); }
+
+.toast span { flex: 1; }
+
+.toast-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  display: flex;
+}
+
+/* ---------- Skeleton loaders ---------- */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-border) 60%, transparent) 25%,
+    color-mix(in srgb, var(--color-border) 90%, transparent) 50%,
+    color-mix(in srgb, var(--color-border) 60%, transparent) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Page transitions ---------- */
+.page-transition {
+  animation: pageFade 0.3s ease both;
+}
+
+@keyframes pageFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Footer ---------- */
+.app-footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  margin-top: 30px;
+}
+
+/* ---------- Progress ring (SVG circular progress) ---------- */
+.progress-ring-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  fill: var(--color-text);
+}

@@ -1,0 +1,28 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2fb88a"/>
+      <stop offset="100%" stop-color="#7c6cf0"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a99cf7"/>
+      <stop offset="100%" stop-color="#2fb88a"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="100" cy="100" r="96" fill="url(#g1)"/>
+
+  <!-- Lotus / leaf petals representing nutrition -->
+  <g transform="translate(100,118)">
+    <path d="M0,0 C-30,-10 -34,-45 0,-60 C34,-45 30,-10 0,0 Z" fill="#ffffff" opacity="0.95"/>
+    <path d="M0,0 C-46,6 -66,-22 -52,-52 C-20,-52 -6,-30 0,0 Z" fill="#ffffff" opacity="0.8"/>
+    <path d="M0,0 C46,6 66,-22 52,-52 C20,-52 6,-30 0,0 Z" fill="#ffffff" opacity="0.8"/>
+  </g>
+
+  <!-- Mind / meditation swirl above, representing calm mind -->
+  <circle cx="100" cy="48" r="14" fill="#ffffff"/>
+  <path d="M78,48 a22,22 0 1,1 44,0" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Base stem -->
+  <rect x="97" y="118" width="6" height="26" rx="3" fill="#ffffff" opacity="0.9"/>
+</svg>
