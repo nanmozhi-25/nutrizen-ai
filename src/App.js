@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-route
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
+import ChatbotWidget from "./components/ChatbotWidget";
 import { ToastProvider } from "./components/ToastContext";
 import { seedDemoData } from "./utils/seedData";
 import { requestNotificationPermission, startReminder } from "./utils/notifications";
@@ -21,6 +22,8 @@ import Achievements from "./pages/Achievements";
 import Meditation from "./pages/Meditation";
 import Breathing from "./pages/Breathing";
 import Profile from "./pages/Profile";
+import Recommendations from "./pages/Recommendations";
+import WeightTracker from "./pages/WeightTracker";
 import "./theme.css";
 
 initTheme();
@@ -44,6 +47,7 @@ function ProtectedLayout({ children }) {
           <Footer />
         </div>
       </div>
+      <ChatbotWidget />
     </>
   );
 }
@@ -88,6 +92,8 @@ export default function App() {
           <Route path="/meditation" element={<ProtectedLayout><Meditation /></ProtectedLayout>} />
           <Route path="/breathing" element={<ProtectedLayout><Breathing /></ProtectedLayout>} />
           <Route path="/profile" element={<ProtectedLayout><Profile /></ProtectedLayout>} />
+          <Route path="/recommendations" element={<ProtectedLayout><Recommendations /></ProtectedLayout>} />
+          <Route path="/weight-tracker" element={<ProtectedLayout><WeightTracker /></ProtectedLayout>} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

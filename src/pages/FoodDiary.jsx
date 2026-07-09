@@ -22,7 +22,7 @@ export default function FoodDiary() {
         {entries.length === 0 ? (
           <div className="empty-state">
             <UtensilsCrossed size={32} className="empty-icon" style={{ display: "block", margin: "0 auto 8px" }} />
-            <p>No entries yet. Go scan some food!</p>
+            <p>No meals logged today. Scan your breakfast to begin.</p>
           </div>
         ) : (
           entries.map((e, i) => (

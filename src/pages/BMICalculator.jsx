@@ -3,6 +3,7 @@ import { Scale, Lightbulb } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import { playSuccess } from "../utils/sound";
 import { useToast } from "../components/ToastContext";
+import { saveData, loadData } from "../utils/storage";
 
 function getCategory(bmi) {
   if (bmi < 18.5) return { label: "Underweight", color: "var(--color-warning)", tip: "Consider nutrient-dense foods like nuts, dairy, and whole grains to reach a healthy weight." };
@@ -23,6 +24,11 @@ export default function BMICalculator() {
     const h = height / 100;
     const value = weight / (h * h);
     setBmi(value.toFixed(1));
+    const today = new Date().toISOString().slice(0, 10);
+    const record = { value: Number(value.toFixed(1)), date: today };
+    saveData("nz_last_bmi", { ...record, date: new Date().toISOString() });
+    const history = loadData("nz_bmi_history", []);
+    saveData("nz_bmi_history", [...history.filter((h) => h.date !== today), record].sort((a, b) => a.date.localeCompare(b.date)));
     playSuccess();
     showToast("BMI calculated", "success");
   }

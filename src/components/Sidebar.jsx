@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import {
   LayoutDashboard, Camera, BookOpen, Flame, Droplet, Scale,
-  UtensilsCrossed, Target, Trophy, Wind, User, LogOut,
+  UtensilsCrossed, Target, Trophy, Wind, User, LogOut, Sparkles, Weight,
 } from "lucide-react";
 import "./Sidebar.css";
 
@@ -11,10 +11,12 @@ const links = [
   { to: "/food-diary", icon: BookOpen, label: "Food Diary" },
   { to: "/calorie-tracker", icon: Flame, label: "Calorie Tracker" },
   { to: "/water-tracker", icon: Droplet, label: "Water Tracker" },
+  { to: "/weight-tracker", icon: Weight, label: "Weight Tracker" },
   { to: "/bmi-calculator", icon: Scale, label: "BMI Calculator" },
   { to: "/meal-planner", icon: UtensilsCrossed, label: "Meal Planner" },
   { to: "/goals", icon: Target, label: "Goals" },
   { to: "/achievements", icon: Trophy, label: "Achievements" },
+  { to: "/recommendations", icon: Sparkles, label: "Recommendations" },
   { to: "/meditation", icon: Wind, label: "Meditation" },
   { to: "/breathing", icon: Wind, label: "Breathing" },
   { to: "/profile", icon: User, label: "Profile" },
@@ -32,7 +34,7 @@ export default function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="sidebar-logo">
-        <img src="/logo.svg" alt="NutriZen AI" />
+        <img src="/logo.png" alt="NutriZen AI" />
         <span>NutriZen AI</span>
       </div>
       {links.map((l) => {
@@ -44,13 +46,13 @@ export default function Sidebar() {
             end={l.end}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            <Icon size={18} strokeWidth={2} /> {l.label}
+            <Icon size={18} strokeWidth={2} /> <span>{l.label}</span>
           </NavLink>
         );
       })}
       <div className="sidebar-logout">
         <a href="#logout" onClick={(e) => { e.preventDefault(); handleLogout(); }}>
-          <LogOut size={18} strokeWidth={2} /> Logout
+          <LogOut size={18} strokeWidth={2} /> <span>Logout</span>
         </a>
       </div>
     </aside>

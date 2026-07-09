@@ -47,7 +47,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <img src="/logo.svg" alt="NutriZen AI logo" className="app-logo" />
+        <img src="/logo.png" alt="NutriZen AI logo" className="app-logo" />
         <div className="brand-text">
           <h1>NutriZen AI</h1>
           <p>AI-Powered Nutrition & Meditation Assistant</p>

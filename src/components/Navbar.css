@@ -87,4 +87,16 @@
   .datetime-widget {
     display: none;
   }
+
+  .navbar {
+    padding: 10px 14px;
+  }
+
+  .brand-text p {
+    display: none;
+  }
+
+  .brand-text h1 {
+    font-size: 1.05rem;
+  }
 }

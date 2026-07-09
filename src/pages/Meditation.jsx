@@ -4,15 +4,22 @@ import PageHeader from "../components/PageHeader";
 import { playChime } from "../utils/sound";
 import { sendNotification } from "../utils/notifications";
 import { useToast } from "../components/ToastContext";
+import { loadData, saveData, todayKey } from "../utils/storage";
 
 const SESSIONS = [3, 5, 10, 15];
+const DAILY_GOAL_MIN = 30;
 
 export default function Meditation() {
   const [duration, setDuration] = useState(5);
   const [secondsLeft, setSecondsLeft] = useState(null);
   const [running, setRunning] = useState(false);
+  const [todayMinutes, setTodayMinutes] = useState(0);
   const showToast = useToast();
   const intervalRef = useRef(null);
+
+  useEffect(() => {
+    setTodayMinutes(loadData(`nz_meditation_${todayKey()}`, 0));
+  }, []);
 
   useEffect(() => {
     if (running && secondsLeft > 0) {
@@ -24,6 +31,12 @@ export default function Meditation() {
       playChime();
       sendNotification("Session Complete", `Great job completing your ${duration} min meditation!`);
       showToast("Meditation session complete", "success");
+
+      const key = `nz_meditation_${todayKey()}`;
+      const current = loadData(key, 0);
+      const updated = current + duration;
+      saveData(key, updated);
+      setTodayMinutes(updated);
     }
     return () => clearInterval(intervalRef.current);
   }, [running, secondsLeft]);
@@ -46,6 +59,18 @@ export default function Meditation() {
   return (
     <div>
       <PageHeader icon={Wind} title="Meditation" subtitle="Take a few minutes to reset your mind." />
+
+      <div className="card">
+        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+          <span style={{ fontSize: "0.85rem", fontWeight: 600 }}>Today's mindfulness</span>
+          <span style={{ fontSize: "0.85rem", color: "var(--color-text-muted)" }}>
+            {todayMinutes} / {DAILY_GOAL_MIN} mins
+          </span>
+        </div>
+        <div className="progress-track">
+          <div className="progress-fill" style={{ width: `${Math.min(100, Math.round((todayMinutes / DAILY_GOAL_MIN) * 100))}%` }} />
+        </div>
+      </div>
 
       <div className="card" style={{ textAlign: "center" }}>
         {secondsLeft === null ? (

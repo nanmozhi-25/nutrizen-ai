@@ -6,6 +6,7 @@ import { fetchGoals, createGoal, toggleGoal, deleteGoal } from "../utils/api";
 import { playAchievement, playError, playClick } from "../utils/sound";
 import { sendNotification } from "../utils/notifications";
 import { useToast } from "../components/ToastContext";
+import { loadData, saveData, todayKey } from "../utils/storage";
 
 const GOAL_TEMPLATES = [
   "Drink 8 glasses of water daily",
@@ -54,6 +55,9 @@ export default function Goals() {
         playAchievement();
         sendNotification("Goal Completed", updated.text);
         showToast("Goal completed! Great work.", "success");
+
+        const log = loadData("nz_goal_completion_log", []);
+        saveData("nz_goal_completion_log", [...log, todayKey()]);
       }
     } catch (err) {
       setError(err.message);

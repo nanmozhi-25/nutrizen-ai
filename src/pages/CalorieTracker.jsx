@@ -116,9 +116,15 @@ export default function CalorieTracker() {
         <>
           <div className="card">
             <h3>Today's Progress</h3>
-            <p>
-              {total} / {goal} kcal
-            </p>
+            {total === 0 ? (
+              <p style={{ color: "var(--color-text-muted)" }}>
+                No meals logged today. Scan your breakfast to begin.
+              </p>
+            ) : (
+              <p>
+                {total} / {goal} kcal
+              </p>
+            )}
             <div className="progress-track">
               <div className="progress-fill" style={{ width: `${percent}%` }} />
             </div>

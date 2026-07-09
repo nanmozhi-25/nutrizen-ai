@@ -107,9 +107,15 @@ export default function WaterTracker() {
         <>
           <div className="card" style={{ textAlign: "center" }}>
             <h3>{glasses} / {goal} glasses</h3>
-            <p style={{ color: "var(--color-text-muted)" }}>
-              ≈ {glasses * GLASS_ML} ml today
-            </p>
+            {glasses === 0 ? (
+              <p style={{ color: "var(--color-text-muted)" }}>
+                Drink your first glass of water to start today's hydration.
+              </p>
+            ) : (
+              <p style={{ color: "var(--color-text-muted)" }}>
+                ≈ {glasses * GLASS_ML} ml today
+              </p>
+            )}
 
             <div className="progress-track" style={{ margin: "16px 0" }}>
               <div className="progress-fill" style={{ width: `${percent}%` }} />

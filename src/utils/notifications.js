@@ -7,7 +7,7 @@ export function requestNotificationPermission() {
   return Notification.requestPermission();
 }
 
-export function sendNotification(title, body, icon = "/logo.svg") {
+export function sendNotification(title, body, icon = "/logo.png") {
   if (!("Notification" in window)) return;
   if (Notification.permission !== "granted") return;
   try {
