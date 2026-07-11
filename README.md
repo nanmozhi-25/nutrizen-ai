@@ -56,16 +56,24 @@ explainable.
 
 <table>
 <tr>
-<td width="50%"><img src="./screenshots/login.png" alt="Login page" /><p align="center"><em>Login Page</em></p></td>
-<td width="50%"><img src="./screenshots/dashboard.png" alt="Dashboard" /><p align="center"><em>Dashboard — Stat Cards & Insights</em></p></td>
+<td width="50%"><img src="./screenshots/register.png" alt="Register page" /><p align="center"><em>Register Page</em></p></td>
+<td width="50%"><img src="./screenshots/dashboard.png" alt="Dashboard" /><p align="center"><em>Dashboard</em></p></td>
 </tr>
 <tr>
-<td width="50%"><img src="./screenshots/food-scanner.png" alt="Food Scanner" /><p align="center"><em>Food Scanner</em></p></td>
-<td width="50%"><img src="./screenshots/goals.png" alt="Goals" /><p align="center"><em>Goals Module</em></p></td>
+<td width="50%"><img src="./screenshots/foodscanner.png" alt="Food Scanner" /><p align="center"><em>Food Scanner</em></p></td>
+<td width="50%"><img src="./screenshots/fooddiary.png" alt="Food Diary" /><p align="center"><em>Food Diary</em></p></td>
 </tr>
 <tr>
-<td width="50%"><img src="./screenshots/recommendations.png" alt="Recommendations" /><p align="center"><em>Recommendations Engine</em></p></td>
-<td width="50%"><img src="./screenshots/weight-tracker.png" alt="Weight Tracker" /><p align="center"><em>Weight Tracker</em></p></td>
+<td width="50%"><img src="./screenshots/watertracker.png" alt="Water Tracker" /><p align="center"><em>Water Tracker</em></p></td>
+<td width="50%"><img src="./screenshots/BMICalculator.png" alt="BMI Calculator" /><p align="center"><em>BMI Calculator</em></p></td>
+</tr>
+<tr>
+<td width="50%"><img src="./screenshots/mealplanner.png" alt="Meal Planner" /><p align="center"><em>Meal Planner</em></p></td>
+<td width="50%"><img src="./screenshots/meditation.png" alt="Meditation" /><p align="center"><em>Meditation</em></p></td>
+</tr>
+<tr>
+<td width="50%"><img src="./screenshots/chatbot.png" alt="AI Chatbot" /><p align="center"><em>AI Chatbot Assistant</em></p></td>
+<td width="50%"></td>
 </tr>
 </table>
 
