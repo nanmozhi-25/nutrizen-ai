@@ -52,6 +52,33 @@ explainable.
 | Dark Mode | Full theme toggle, persisted across sessions |
 | Notifications | Browser push reminders for hydration & goal milestones |
 
+## 📸 Application Screenshots
+
+<table>
+<tr>
+<td width="50%"><img src="./screenshots/login.png" alt="Login page" /><p align="center"><em>Login Page</em></p></td>
+<td width="50%"><img src="./screenshots/dashboard.png" alt="Dashboard" /><p align="center"><em>Dashboard — Stat Cards & Insights</em></p></td>
+</tr>
+<tr>
+<td width="50%"><img src="./screenshots/food-scanner.png" alt="Food Scanner" /><p align="center"><em>Food Scanner</em></p></td>
+<td width="50%"><img src="./screenshots/goals.png" alt="Goals" /><p align="center"><em>Goals Module</em></p></td>
+</tr>
+<tr>
+<td width="50%"><img src="./screenshots/recommendations.png" alt="Recommendations" /><p align="center"><em>Recommendations Engine</em></p></td>
+<td width="50%"><img src="./screenshots/weight-tracker.png" alt="Weight Tracker" /><p align="center"><em>Weight Tracker</em></p></td>
+</tr>
+</table>
+
+## 🏗️ System Architecture
+
+Three-tier architecture: a React SPA (Presentation Layer) talks to an
+Express REST API (Application Layer) secured with JWT, which persists data
+in MongoDB Atlas (Data Layer). Client-side rule-based engines (recommendations,
+insights, chatbot) run entirely in the browser for instant, cost-free
+personalization.
+
+![System Architecture](./screenshots/system-architecture.png)
+
 ## Tech Stack
 
 **Frontend:** React 18, React Router 6, Recharts, Lucide React, custom CSS design tokens
@@ -65,6 +92,22 @@ explainable.
 > Vision) without changing the rest of the flow. This is a documented,
 > intentional trade-off — see the project report for details.
 
+## 🤖 AI Features
+
+- **AI Chatbot Assistant** — floating widget answering meal, calorie, sleep, and hydration questions in natural language
+- **Rule-Based Recommendation Engine** — categorized, scored, and prioritized suggestions across five wellness dimensions
+- **Personalized Nutrition Suggestions** — Food Scanner results include meal-specific improvement tips
+- **Daily Health Insights** — dashboard panel generating time-of-day and streak-aware tips from the user's own data
+- **Context-Aware Responses** — the chatbot uses the user's live remaining-calorie and hydration status to personalize answers
+
+## 🔒 Security Features
+
+- **JWT Authentication** — stateless, signed session tokens for every logged-in user
+- **bcrypt Password Hashing** — passwords are never stored in plain text
+- **Protected REST APIs** — every data route is guarded by an authentication middleware
+- **User-Based Authorization** — each user can only read or modify their own goals, water logs, and calorie logs
+- **Environment Variables** — database credentials and JWT secrets are kept out of source control via `.env`
+
 ## Project Structure
 
 ```
@@ -77,6 +120,7 @@ nutrizen-ai/
 │   ├── server.js               # Express app entry point
 │   └── .env.example
 ├── public/                       # index.html, logo
+├── screenshots/                # README preview images
 ├── src/
 │   ├── components/           # Navbar, Sidebar, charts, chatbot, toast
 │   ├── pages/                    # Dashboard, trackers, goals, etc.
@@ -117,6 +161,18 @@ cp .env.example .env
 npm start
 ```
 The app opens automatically at `http://localhost:3000`.
+
+## 🚀 Usage
+
+1. Register an account
+2. Login securely
+3. Track daily calories
+4. Monitor hydration
+5. Calculate BMI
+6. Plan meals
+7. Chat with the AI Assistant
+8. View personalized recommendations
+9. Practice guided meditation
 
 ## API Reference
 
