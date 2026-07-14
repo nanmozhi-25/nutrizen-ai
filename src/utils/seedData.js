@@ -1,4 +1,4 @@
-import { loadData, saveData, todayKey } from "./storage";
+import { saveData, todayKey } from "./storage";
 
 // Runs once (checks a flag) to populate localStorage with realistic sample
 // data so the app looks full and alive on first open, instead of empty.

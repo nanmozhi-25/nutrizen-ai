@@ -39,7 +39,7 @@ export default function Meditation() {
       setTodayMinutes(updated);
     }
     return () => clearInterval(intervalRef.current);
-  }, [running, secondsLeft]);
+  }, [running, secondsLeft, duration, showToast]);
 
   function start(mins) {
     setDuration(mins);
