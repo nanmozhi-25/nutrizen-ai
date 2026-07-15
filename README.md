@@ -19,9 +19,9 @@ a rule-based recommendation engine into one cohesive application.
 
 ---
 
-## 🚀 Live Demo
+# 🚀 Live Demo
 
-👉 [Click here to use NutriZen AI](https://nutrizen-ai-hazel.vercel.app/)
+👉 [Click here to use NutriZen AI](https://nutrizen-ai-hazel.vercel.app)
 
 ---
 
