@@ -19,6 +19,12 @@ a rule-based recommendation engine into one cohesive application.
 
 ---
 
+## 🚀 Live Demo
+
+👉 [Click here to use NutriZen AI](https://nutrizen-ai-hazel.vercel.app/)
+
+---
+
 ## About
 
 NutriZen AI is a full-stack MERN-style application designed to make healthy
