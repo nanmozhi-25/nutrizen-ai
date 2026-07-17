@@ -63,23 +63,23 @@ explainable.
 
 <table>
 <tr>
-<td width="50%"><img src="./screenshots/register.png" alt="Register page" /><p align="center"><em>Register Page</em></p></td>
-<td width="50%"><img src="./screenshots/dashboard.png" alt="Dashboard" /><p align="center"><em>Dashboard</em></p></td>
+<td width="50%"><img src="./screenshots/register.png.png" alt="Register page" /><p align="center"><em>Register Page</em></p></td>
+<td width="50%"><img src="./screenshots/dashboard.png.png" alt="Dashboard" /><p align="center"><em>Dashboard</em></p></td>
 </tr>
 <tr>
-<td width="50%"><img src="./screenshots/foodscanner.png" alt="Food Scanner" /><p align="center"><em>Food Scanner</em></p></td>
-<td width="50%"><img src="./screenshots/fooddiary.png" alt="Food Diary" /><p align="center"><em>Food Diary</em></p></td>
+<td width="50%"><img src="./screenshots/foodscanner.png.png" alt="Food Scanner" /><p align="center"><em>Food Scanner</em></p></td>
+<td width="50%"><img src="./screenshots/fooddiary.png.png" alt="Food Diary" /><p align="center"><em>Food Diary</em></p></td>
 </tr>
 <tr>
-<td width="50%"><img src="./screenshots/watertracker.png" alt="Water Tracker" /><p align="center"><em>Water Tracker</em></p></td>
-<td width="50%"><img src="./screenshots/BMICalculator.png" alt="BMI Calculator" /><p align="center"><em>BMI Calculator</em></p></td>
+<td width="50%"><img src="./screenshots/watertracker.png.png" alt="Water Tracker" /><p align="center"><em>Water Tracker</em></p></td>
+<td width="50%"><img src="./screenshots/BMICalculator.png.png" alt="BMI Calculator" /><p align="center"><em>BMI Calculator</em></p></td>
 </tr>
 <tr>
-<td width="50%"><img src="./screenshots/mealplanner.png" alt="Meal Planner" /><p align="center"><em>Meal Planner</em></p></td>
-<td width="50%"><img src="./screenshots/meditation.png" alt="Meditation" /><p align="center"><em>Meditation</em></p></td>
+<td width="50%"><img src="./screenshots/mealplanner.png.png" alt="Meal Planner" /><p align="center"><em>Meal Planner</em></p></td>
+<td width="50%"><img src="./screenshots/meditation.png.png" alt="Meditation" /><p align="center"><em>Meditation</em></p></td>
 </tr>
 <tr>
-<td width="50%"><img src="./screenshots/chatbot.png" alt="AI Chatbot" /><p align="center"><em>AI Chatbot Assistant</em></p></td>
+<td width="50%"><img src="./screenshots/chatbot.png.png" alt="AI Chatbot" /><p align="center"><em>AI Chatbot Assistant</em></p></td>
 <td width="50%"></td>
 </tr>
 </table>
