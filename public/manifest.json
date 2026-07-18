@@ -1,0 +1,23 @@
+{
+  "short_name": "NutriZen AI",
+  "name": "NutriZen AI - AI-Powered Nutrition & Meditation Assistant",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#2563EB",
+  "background_color": "#f8fafc",
+  "orientation": "portrait-primary"
+}
