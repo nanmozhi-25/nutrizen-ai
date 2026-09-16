@@ -1,210 +1,71 @@
-# NutriZen AI – Elite Wellness & Meditation Dashboard
+# NutriZen AI – Elite Wellness & AI Nutrition Platform
 
-Welcome to the **NutriZen AI** master documentation. This manual provides a complete blueprint of the upgraded, corporate-grade Single-Page Application (SPA) architecture, database models, ER designs, user workflow flowcharts, and setup configurations.
-
-NutriZen AI is designed as a benchmark Final Year College Project, matching industry standards in UI/UX presentation and responsive state mechanics.
+Welcome to **NutriZen AI**. This repository is a production-ready, full-stack Next.js application unifying AI vision food recognition, USDA nutritional analytics, MongoDB Atlas database persistence, guided box breathing, and ambient soundscapes.
 
 ---
 
-## 🏗️ 1. Upgraded System Architecture
+## 🏗️ 1. Upgraded Full-Stack Architecture
 
-The workspace utilizes a client-side reactive state model backed by local storage and inline SVG graphic rendering:
+NutriZen AI uses a modern Next.js Full-Stack Architecture deployed seamlessly on Vercel:
 
 ```mermaid
 graph TD
-    User([Zen Practitioner]) --> Hub[Enterprise Auth Split Screen Hub]
-    Hub --> Session{Validated JWT Session?}
-    Session -- Yes --> Workspace[Premium Workspace Panel]
-    Session -- No --> Redirect[Login Form / Split Screen]
+    User([Zen Practitioner]) --> App[Next.js Frontend & UI]
+    App --> Auth[Next.js Auth API Route /api/auth]
+    App --> Scanner[Gemini Vision Scanner /api/scanner]
+    App --> Chatbot[Gemini AI Chatbot /api/chat]
+    App --> USDA[USDA Food Central API /api/usda]
+    App --> Logs[Food Logs API /api/food-logs]
+    App --> Goals[Goals & Checklist API /api/goals]
     
-    Workspace --> Navigation[SPA Hash Router]
-    Navigation --> Dashboard[Dashboard & Wave Hydration]
-    Navigation --> Planner[AI Nutrition & Console Logger]
-    Navigation --> Breathing[Box Breathing Sphere & Mixer]
-    Navigation --> Reports[SVG Custom Chart Canvas]
-    
-    Workspace --> DB[LocalStorage State Store]
+    Auth --> MongoDB[(MongoDB Atlas Cluster)]
+    Scanner --> GeminiAPI[Google Gemini 1.5 Flash API]
+    Scanner --> USDAAPI[USDA FoodData Central API]
+    Chatbot --> GeminiAPI
+    Chatbot --> MongoDB
+    Logs --> MongoDB
+    Goals --> MongoDB
 ```
 
 - **Visual Theme**: Premium Dark Mode default with Neo-Glassmorphism blur layers (`backdrop-filter: blur(24px)`), thin transparent borders (`border-white/10`), and deep shadow rings.
-- **Custom SVG Charting Engine**: Dynamically calculates coordinates and draws trend lines (`Calories Consumed` vs `Calorie Burn Rate`) inside a raw responsive `<svg>` viewbox container. It avoids external canvas rendering dependencies, demonstrating elite engineering capabilities.
+- **Custom SVG Charting Engine**: Dynamically calculates coordinates and draws trend lines (`Calories Consumed` vs `Calorie Burn Rate`) inside a raw responsive `<svg>` viewbox container.
 - **Dynamic Wave Canvas**: Animates SVG wave coordinates (`wave-fg` and `wave-bg`) to represent liquid volumes visually inside a glass graphic container.
 
 ---
 
-## 🔄 2. Complete User Session Workflow
+## ⚡ 2. Core Real Features
 
-The sequence below outlines runtime authentication, page navigation, and database update triggers:
+1. **Real Food Scanner (`/api/scanner`)**: Uses Google Gemini Vision (`gemini-1.5-flash`) for food image recognition + USDA FoodData Central API lookup.
+2. **Real AI Chatbot (`/api/chat`)**: Google Gemini API clinical nutritionist chatbot with rate-limiting queue & chat history saved in MongoDB.
+3. **Real USDA Nutrition Data (`/api/usda`)**: Live USDA FoodData Central search for calories, protein, carbs, fat, fiber, sugar, sodium.
+4. **Real MongoDB Data Flow**: MongoDB Atlas M0 cluster integration (`User`, `FoodLog`, `Goal`, `Routine`, `HealthConcern`, `ChatHistory`, `Notification`).
+5. **Real Health Concern Alerts (`/api/food-logs`)**: Automated alerts for Diabetes (sugar limits) & Hypertension (sodium limits).
+6. **Real Goals Checklist (`/api/goals`)**: Real-time MongoDB goal checkmark updates & live progress tracking.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor User as Zen Practitioner
-    participant Router as SPA Router
-    participant Session as JWT Session Guard
-    participant DB as LocalStorage JSON State
-    participant UI as Dynamic UI Views
+---
 
-    User->{Router}: Access #dashboard Hash
-    Router->>Session: Parse stored token structures
-    alt Valid Session Detected
-        Session->>Router: Proceed to render workspace
-        Router->>DB: Fetch profile inputs & logs
-        DB-->>Router: Returns JSON tables
-        Router->>UI: Populate dashboard gauges & SVG charts
-    else Invalid / No Session
-        Session->>Router: Redirect to #login
-        Router->>UI: Show split-screen login layout
-        User->>UI: Submit credentials (Email / Password)
-        UI->>Session: Simulate validation & issue dummy JWT
-        Session->>DB: Update streak count (+1 day)
-        Session->>Router: Proceed to workspace #dashboard
-    end
+## 🔑 3. Environment Variables Setup
 
-    User->>UI: Select diet type & click "Invoke NutriZen AI"
-    UI->>UI: Simulate step-by-step console text loader (2.5 seconds)
-    UI->>DB: Query food suggestions table
-    DB-->>UI: Returns recipe timelines
-    UI->>UI: Render timeline cards (Ingredients, Macro bars, Timers)
+Create a `.env.local` file or configure Vercel Environment Variables:
+
+| Variable | Purpose | Link |
+| :--- | :--- | :--- |
+| `GEMINI_API_KEY` | Food Image Recognition & AI Chatbot | [Google AI Studio](https://aistudio.google.com/app/apikey) |
+| `USDA_API_KEY` | USDA Food Central API | [USDA API Signup](https://fdc.nal.usda.gov/api-key-signup.html) |
+| `MONGODB_URI` | MongoDB Atlas Database Connection | [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) |
+| `JWT_SECRET` | Authentication Session Token Signing | `nutrizen_sec_9f8a3b127c4d5e6f8091a2b3c4d5e6f` |
+
+---
+
+## 🌐 4. Installation & Quick Start
+
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Run local development server
+npm run dev
+
+# 3. Build production bundle
+npm run build
 ```
-
----
-
-## 📊 3. Entity-Relationship (ER) Diagram
-
-The diagram below details table relationships, primary/foreign key attributes, and data structures:
-
-```mermaid
-erDiagram
-    USERS {
-        varchar id PK
-        varchar name
-        varchar email UK
-        varchar password
-        varchar role "user | admin"
-        timestamp created_at
-    }
-    PROFILES {
-        varchar user_id PK, FK
-        int age
-        varchar gender
-        decimal height "cm"
-        decimal weight "kg"
-        decimal bmi
-        varchar activity_level "Sedentary | Moderate | High"
-        varchar dietary_preference "Veg | Non-Veg | Vegan | Keto"
-        text_array allergies
-        varchar health_goals "Weight Loss | Muscle Gain | Maintain Health"
-        int water_goal "ml"
-        decimal sleep_goal "hours"
-        int meditation_goal "minutes"
-    }
-    MEALS {
-        varchar id PK
-        varchar user_id FK
-        varchar name
-        int calories
-        int protein "grams"
-        int carbs "grams"
-        int fat "grams"
-        varchar meal_type "Breakfast | Lunch | Dinner | Snack"
-        date date
-    }
-    WATER_LOGS {
-        int id PK
-        varchar user_id FK
-        date date
-        int amount "ml"
-    }
-    SLEEP_LOGS {
-        int id PK
-        varchar user_id FK
-        date date
-        decimal duration "hours"
-        varchar quality "Excellent | Good | Restless | Poor"
-    }
-    MOOD_LOGS {
-        int id PK
-        varchar user_id FK
-        date date
-        varchar mood "Calm | Happy | Tired | Stressed"
-        text notes
-    }
-    FITNESS_LOGS {
-        int id PK
-        varchar user_id FK
-        date date
-        varchar workout
-        int duration "minutes"
-        int calories_burned
-        int steps
-    }
-    GOALS {
-        varchar id PK
-        varchar user_id FK
-        varchar text
-        boolean completed
-    }
-    STREAKS {
-        varchar user_id PK, FK
-        int current_streak
-        int best_streak
-    }
-    NOTIFICATIONS {
-        varchar id PK
-        varchar user_id FK
-        varchar title
-        text message
-        boolean read
-        timestamp date
-    }
-
-    USERS ||--|| PROFILES : "defines parameters"
-    USERS ||--|| STREAKS : "accumulates consistency"
-    USERS ||--o{ MEALS : "tracks food log"
-    USERS ||--o{ WATER_LOGS : "monitors liquid logs"
-    USERS ||--o{ SLEEP_LOGS : "logs sleep cycle"
-    USERS ||--o{ MOOD_LOGS : "updates stress journal"
-    USERS ||--o{ FITNESS_LOGS : "records active burn"
-    USERS ||--o{ GOALS : "manages daily checklist"
-    USERS ||--o{ NOTIFICATIONS : "receives triggers"
-```
-
----
-
-## 🗃️ 4. Production Database Schema
-The DDL script outlines fields, indexes, checks, and cascade triggers for a real Postgres database setup.
-- **Reference Script**: [schema.sql](file:///C:/Users/nanmo/.gemini/antigravity/scratch/nutrizen-ai/schema.sql)
-
----
-
-## 📡 5. REST API Documentation
-Detailed routing layouts, body parameters, and response profiles are outlined in the API guide.
-- **Reference Doc**: [api_doc.md](file:///C:/Users/nanmo/.gemini/antigravity/scratch/nutrizen-ai/api_doc.md)
-
----
-
-## 🎨 6. UI / UX Design Specifications
-
-### Corporate Wellness Gradients
-- **Nutrition/Fitness Components**: Emerald Green to Forest Teal (`bg-gradient-to-r from-emerald-500 to-teal-500`).
-- **Meditation/Breathing Components**: Indigo to Violet (`bg-gradient-to-tr from-zen-violetDark to-zen-indigo`).
-- **Typography Standards**:
-  - Headings & Brand: *Playfair Display* for a premium, organic wellness, and professional healthcare editorial appearance.
-  - Metrics & Controls: *Outfit* for modern numeric tracking and interface controls.
-
----
-
-## 💻 7. Installation & Quick Start
-
-To launch and run this application locally:
-
-1. **Locate folder**:
-   Navigate to `C:\Users\nanmo\.gemini\antigravity\scratch\nutrizen-ai`.
-2. **Open SPA file**:
-   Double click [index.html](file:///C:/Users/nanmo/.gemini/antigravity/scratch/nutrizen-ai/index.html) to launch the workspace inside your browser.
-3. **Simulate User Sign In**:
-   - Use default practitioner credentials: `zen@nutrizen.com` | Password: `password123`
-   - Use administrator credentials: `admin@nutrizen.com` | Password: `adminpassword` (unlocks the restricted **Admin Hub** navigation link).
-4. **Data Management**:
-   The application updates state dynamically inside the browser's `localStorage`. Clear cache/site cookies to restore default databases.
