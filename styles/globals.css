@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Neo-Glassmorphism Classes */
+.glass-panel {
+  background: rgba(18, 24, 20, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.3);
+}
+
+.light .glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 40px 0 rgba(31, 38, 135, 0.05);
+}
+
+/* Wave animation for hydration cup */
+@keyframes wave-rise {
+  0% { transform: translateY(0) scaleY(1); }
+  50% { transform: translateY(-4px) scaleY(0.95); }
+  100% { transform: translateY(0) scaleY(1); }
+}
+
+@keyframes wave-trans {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.wave-bg {
+  animation: wave-trans 8s linear infinite;
+}
+
+.wave-fg {
+  animation: wave-trans 4s linear infinite, wave-rise 2s ease-in-out infinite;
+}
+
+/* Immersive Sound Visualizer bars */
+@keyframes bar-grow {
+  0%, 100% { transform: scaleY(0.15); }
+  50% { transform: scaleY(1); }
+}
+.viz-bar {
+  transform-origin: bottom center;
+  animation: bar-grow 1s ease-in-out infinite;
+}
+
+/* Floating blobs for breathing guide background */
+@keyframes blob-shift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+.blob-animate-1 { animation: blob-shift 15s infinite ease-in-out; }
+.blob-animate-2 { animation: blob-shift 12s infinite ease-in-out 2s; }
